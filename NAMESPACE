@@ -1,0 +1,3 @@
+export(z.score, z.score.pval, binom.pval, prop.cint)
+export(cont.table)
+export(chisq, chisq.pval, fisher.pval, rel.risk.cint)
