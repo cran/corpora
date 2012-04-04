@@ -1,5 +1,6 @@
 \name{chisq}
 \alias{chisq}
+\encoding{latin1}
 \title{Pearson's chi-squared statistic for frequency comparisons (corpora)}
 
 \description{

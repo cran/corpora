@@ -59,8 +59,7 @@ chisq.pval(k1, n1, k2, n2, correct = TRUE,
 }
 
 \seealso{\code{\link{chisq}}, \code{\link{fisher.pval}},
-  \code{\link{chisq.test}}, \code{\link{prop.test}},
-  \code{\link{rel.risk.cint}}}
+  \code{\link{chisq.test}}, \code{\link{prop.test}}}
   
 %% \examples{
 %% }

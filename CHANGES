@@ -1,0 +1,18 @@
+Version 0.4-3:
+
+  - interim release to ensure compatiblity with stricter CRAN checks
+  - added data set with Biber register features for all BNC texts (from Gasthaus 2007)
+  - some minor corrections
+
+Version 0.4-1:
+
+  - large simulated census data set for examples and illustrations in the SIGIL course
+  - simulated type-token statistics from English Wikipedia (based on Wackypedia corpus)
+  - convenience function for random samples of rows from a data frame (sample.df)
+
+
+Version 0.4-0:
+
+  - re-launch of the corpora package on R-Forge
+  - first version 0.4-0 has only minor changes over previous release 0.3-2
+

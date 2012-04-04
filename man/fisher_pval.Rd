@@ -61,16 +61,13 @@ fisher.pval(k1, n1, k2, n2,
 
 }
 
-\seealso{\code{\link{fisher.test}}, \code{\link{chisq.pval}},
-  \code{\link{rel.risk.cint}}}
+\seealso{\code{\link{fisher.test}}, \code{\link{chisq.pval}}}
 
 \references{
 
   Fisher, R. A. (1934). \emph{Statistical Methods for Research Workers}.
   Oliver & Boyd, Edinburgh, 2nd edition (1st edition 1925, 14th
   edition 1970).
-
-
 
 }
 
