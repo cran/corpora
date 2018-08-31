@@ -14,7 +14,8 @@
 \usage{
 
 fisher.pval(k1, n1, k2, n2, 
-           alternative = c("two.sided", "less", "greater"))
+            alternative = c("two.sided", "less", "greater"),
+            log.p = FALSE)
 
 }
 
@@ -36,6 +37,8 @@ fisher.pval(k1, n1, k2, n2,
   \item{alternative}{a character string specifying the alternative
     hypothesis; must be one of \code{two.sided} (default), \code{less}
     or \code{greater}}
+    
+  \item{log.p}{if TRUE, the natural logarithm of the p-value is returned}
 
 }
 
@@ -71,8 +74,27 @@ fisher.pval(k1, n1, k2, n2,
 
 }
 
-%% \examples{
-%% }
+\examples{
+
+  ## Fisher's Tea Drinker (see ?fisher.test)
+  TeaTasting <-
+  matrix(c(3, 1, 1, 3),
+         nrow = 2,
+         dimnames = list(Guess = c("Milk", "Tea"),
+                         Truth = c("Milk", "Tea")))
+  print(TeaTasting)
+  ##  - the "corpora" consist of 4 cups of tea each (n1 = n2 = 4)
+  ##     => columns of TeaTasting
+  ##  - frequency counts are the number of cups selected by drinker (k1 = 3, k2 = 1)
+  ##     => first row of TeaTasting
+  ##  - null hypothesis of equal type probability = drinker makes random guesses
+  fisher.pval(3, 4, 1, 4, alternative="greater")
+  fisher.test(TeaTasting, alternative="greater")$p.value # should be the same
+  
+  fisher.pval(3, 4, 1, 4) # uses fast approximation suitable for small p-values
+  fisher.test(TeaTasting)$p.value # approximation is exact for symmetric distribution
+
+}
 
 \author{Stefan Evert}
 \keyword{htest}

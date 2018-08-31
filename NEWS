@@ -1,3 +1,14 @@
+Version 0.5:
+  - consolidated and revised example data sets included in the package
+  - various small, but convenient utility functions added 
+  - maintainer information updated
+
+Version 0.4-9:
+  - transitory version in which data sets and utility functions for the SIGIL course had been moved into a separate package
+  - since the new SIGIL package wasn't accepted by CRAN, the data sets have been moved back into corpora
+  - intended re-design of corpora package was cancelled
+  - in future, it will be used to collect miscellaneous utility functions for analyzing corpus frequency data
+
 Version 0.4-3:
 
   - interim release to ensure compatiblity with stricter CRAN checks

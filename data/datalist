@@ -3,4 +3,14 @@ BNCbiber
 BNCcomparison
 BNCdomains
 BNCmeta
+BNCqueries
+BrownBigrams
+BrownLOBPassives
+BrownPassives
+BrownStats
+DistFeatBrownFam
+KrennPPV
+LOBPassives
+LOBStats
+PassiveBrownFam
 VSS

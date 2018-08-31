@@ -5,7 +5,7 @@
 
 \description{
 
-  This function generates a large simulated census data set with body
+  This function generates a large simulated census data frame with body
   measurements (height, weight, shoe size) for male and female inhabitants
   of a highly fictitious country.
 
@@ -32,7 +32,7 @@ simulated.census(N=502202, p.male=0.55, seed.rng=42)
 
 \value{
 
-  A data set with \code{N} rows corresponding to inhabitants and the following columns:
+  A data frame with \code{N} rows corresponding to inhabitants and the following columns:
 
   \describe{
     \item{\code{height}:}{body height in cm}
@@ -68,5 +68,5 @@ summary(FakeCensus)
 
 }
 
-\author{Stefan Evert (\url{http://purl.org/stefan.evert})}
+\author{Stefan Evert <\email{stefan.evert@fau.de}>}
 \keyword{datasets}

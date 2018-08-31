@@ -4,43 +4,44 @@
 \docType{package}
 \title{
 
-corpora: statistical inference from corpus frequency data
+corpora: Statistical Inference from Corpus Frequency Data
 
 }
 \description{
 
-The \code{corpora} provides some convenience functions and example data sets
-for statistical inference from corpus frequency data.
+The \code{corpora} package provides a collection of functions for statistical inference
+from corpus frequency data, as well as some convenience functions and example data sets.
 
-It is a companion package for the SIGIL course
-(\emph{Statistical Inference - a Gentle Introduction for Linguists and similar creatures})
-developed by Marco Baroni and Stefan Evert.
+It is a companion package to the open-source course \emph{Statistical Inference: a Gentle Introduction for Linguists and similar creatures} developed by Marco Baroni and Stefan Evert. Statistical methods implemented in the package are described and illustrated in the units of this course.
+
 
 }
 \details{
 
-\bold{ToDo:} overview of functions and data sets in package
+\bold{TODO:} overview of functions and data sets in package
 
 }
 
 
 \seealso{
 
-  \bold{ToDo:} entry points into corpora documentation
+\bold{TODO:} entry points into corpora documentation
 
 }
 
-\author{ Stefan Evert <\email{stefan.evert@uos.de}> }
+\author{ 
+
+Stefan Evert <\email{stefan.evert@fau.de}> 
+
+}
 
 \references{
 
-  The official homepage of both the SIGIL course and the corpora package is
-  \url{http://SIGIL.R-Forge.R-Project.org/}.
+The official homepage of the \code{corpora} package and the SIGIL course is \url{http://SIGIL.R-Forge.R-Project.org/}.
 
 }
 
 \keyword{ package }
-%% ~~ optionally other keywords from "KEYWORDS.db", one per line ~~
 
 \examples{
 

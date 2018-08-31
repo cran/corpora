@@ -24,23 +24,25 @@
   with sufficient accuracy by the automatic methods.  For further information on
   the extraction methodology, see Gasthaus (2007, 20-21).  The original data set
   and the Python scripts used for feature extraction are available from
-  \url{http://cogsci.uni-osnabrueck.de/~CL/research/gasthaus2007/}.
+  \url{http://cogsci.uni-osnabrueck.de/~CL/download/BSc_Gasthaus2007/}; the
+  version included here contains some bug fixes.
 
 }
 
 \usage{
-data(BNCbiber)
+
+BNCbiber
+
 }
 
 \format{
 
-  A data set with 4048 rows and 66 columns, specifying document ID followed by
-  the relative frequencies (per 1000 words) of 65 linguistic features.  Documents
-  are listed in the same order as the metadata in \code{\link{BNCmeta}}, so the
-  two data frames can be merged directly with \code{cbind}.
+  A numeric matrix with 4048 rows and 65 columns, specifying the relative frequencies
+  (per 1000 words) of 65 linguistic features.  Documents are listed in the same order
+  as the metadata in \code{\link{BNCmeta}} and rows are labelled with text IDs, so it
+  is straightforward to combine the two data sets.
   
   \tabular{ll}{
-     \code{id} \tab BNC document ID (character vector) \cr
      \tab \bold{A. Tense and aspect markers} \cr
      \code{f_01_past_tense} \tab Past tense \cr
      \code{f_02_perfect_aspect} \tab Perfect aspect \cr
@@ -141,7 +143,7 @@ data(BNCbiber)
 
   Gasthaus, Jan (2007). \emph{Prototype-Based Relevance Learning for Genre Classification.}
   B.Sc.\ thesis, Institute of Cognitive Science, University of \enc{Osnabrück}{Osnabrueck}.
-  Data sets and software available from \url{http://cogsci.uni-osnabrueck.de/~CL/research/gasthaus2007/}.
+  Data sets and software available from \url{http://cogsci.uni-osnabrueck.de/~CL/download/BSc_Gasthaus2007/}.
 
 }
 
@@ -150,5 +152,5 @@ data(BNCbiber)
 %%\examples{
 %%}
 
-\author{Stefan Evert (\url{http://purl.org/stefan.evert}); data extracted by Jan Gasthaus (2007).}
+\author{Stefan Evert (\url{http://purl.org/stefan.evert}); feature extractor by Jan Gasthaus (2007).}
 \keyword{datasets}

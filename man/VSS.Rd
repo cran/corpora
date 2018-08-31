@@ -12,26 +12,27 @@
 
   This data set contains a small corpus (8043 tokens) of short stories
   from the collection \emph{Very Short Stories} (VSS, see
-  \url{http://www.schtepf.de/pages/stories.html}).  The text was
+  \url{http://www.schtepf.de/History/pages/stories.html}).  The text was
   automatically segmented (tokenised) and annotated with part-of-speech
   tags (from the Penn tagset) and lemmas (base forms), using the IMS
-  TreeTagger (Schmid 1994).
-  
+  TreeTagger (Schmid 1994) and a custom lemmatizer.
+
 }
 
 \usage{
-data(VSS)
+VSS
 }
 
 \format{
 
-  A data set with 8043 rows corresponding to tokens and the following
-  columns:
+  A data set with 8043 rows corresponding to tokens and the following columns:
 
   \describe{
     \item{\code{word}:}{the word form (or surface form) of the token}
-    \item{\code{pos}:}{the part-of-speech tag of the token (using the Penn tagset)}
-    \item{\code{word}:}{the lemma (or base form) of the token}
+    \item{\code{pos}:}{the part-of-speech tag of the token (Penn tagset)}
+    \item{\code{lemma}:}{the lemma (or base form) of the token}
+    \item{\code{sentence}:}{number of the sentence in which the token occurs (integer)}
+    \item{\code{story}:}{title of the story to which the token belongs (factor)}
   }
 
 }
@@ -39,7 +40,7 @@ data(VSS)
 \details{
 
   The Penn tagset defines the following part-of-speech tags:
-  
+
   \tabular{ll}{
     \code{CC}  \tab  Coordinating conjunction                   \cr
     \code{CD}  \tab  Cardinal number				 \cr
@@ -76,13 +77,13 @@ data(VSS)
     \code{WDT} \tab  Wh-determiner				 \cr
     \code{WP}  \tab  Wh-pronoun				 \cr
     \code{WP$} \tab  Possessive wh-pronoun			 \cr
-    \code{WRB} \tab  Wh-adverb                                  
+    \code{WRB} \tab  Wh-adverb
  }
-   
+
 }
-  
+
 \references{
-  
+
   Schmid, Helmut (1994). Probabilistic part-of-speech tagging using
   decision trees. In: \emph{Proceedings of the International Conference
   on New Methods in Language Processing (NeMLaP)}, pages 44-49.

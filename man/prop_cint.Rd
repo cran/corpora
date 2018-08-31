@@ -4,10 +4,10 @@
 
 \description{
 
-  This function computes a confidence interval for a population
-  proportion from the corresponding frequency count in a corpus.
-  The confidence interval can be based on a binomial test or on a
-  z-score test (with or without continuity correction).
+  This function computes a confidence interval for a population proportion from
+  the corresponding frequency count in a sample.  It either uses the Clopper-Pearson
+  method (inverted exact binomial test) or the Wilson score method (inversion of a
+  z-score test, with or without continuity correction).
   
 }
 
@@ -24,9 +24,9 @@ prop.cint(k, n, method = c("binomial", "z.score"), correct = TRUE,
     frequencies)}
   \item{n}{number of tokens in the corpus, i.e. sample size (or an
     integer vector specifying the sizes of different samples)}
-  \item{method}{a character string specifying whether the confidence
-    interval is based on the binomial test (\code{binomial}) or the
-    z-score test (\code{z.score})}
+  \item{method}{a character string specifying whether to compute
+    a Clopper-Pearson confidence interval (\code{binomial}) or
+    a Wilson score interval (\code{z.score}) is computed}
   \item{correct}{if \code{TRUE}, apply Yates' continuity correction for
     the z-score test (default)}
   \item{conf.level}{the desired confidence level (defaults to 95\%)}
@@ -85,6 +85,10 @@ prop.cint(k, n, method = c("binomial", "z.score"), correct = TRUE,
   
 %% \examples{
 %% }
-  
+
+\references{
+  \url{http://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval}
+}
+
 \author{Stefan Evert}
 \keyword{htest}

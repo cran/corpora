@@ -24,12 +24,14 @@
 }
 
 \usage{
-data(BNCInChargeOf)
+
+BNCInChargeOf
+
 }
 
 \format{
 
-  A data set with 250 rows and the following columns:
+  A data frame with 250 rows and the following columns:
 
   \describe{
     \item{\code{collocate}:}{a collocate of the key phrase \emph{in charge of} (word form)}
@@ -66,5 +68,5 @@ data(BNCInChargeOf)
 %%\examples{
 %%}
 
-\author{Stefan Evert (\url{http://purl.org/stefan.evert})}
+\author{Stefan Evert <\email{stefan.evert@fau.de}>}
 \keyword{datasets}

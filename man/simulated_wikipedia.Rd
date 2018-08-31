@@ -32,7 +32,7 @@ simulated.wikipedia(N=1429649, length=c(100,1000), seed.rng=42)
 
 \value{
 
-  A data set with \code{N} rows corresponding to Wikipedia articles and the following columns:
+  A data frame with \code{N} rows corresponding to Wikipedia articles and the following columns:
 
   \describe{
     \item{\code{tokens}:}{number of word tokens in the article}
@@ -75,5 +75,5 @@ summary(WackypediaStats)
 
 }
 
-\author{Stefan Evert (\url{http://purl.org/stefan.evert})}
+\author{Stefan Evert <\email{stefan.evert@fau.de}>}
 \keyword{datasets}

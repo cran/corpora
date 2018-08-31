@@ -1,4 +1,11 @@
+importFrom(methods, is)
+importFrom(utils, combn)
+importFrom(stats, pbinom, qbinom, phyper, qhyper, pbeta, qbeta, pchisq, pnorm, qnorm, rnorm, runif)
+importFrom(grDevices, col2rgb, rgb)
+
+export(qw, corpora.palette, alpha.col)
 export(z.score, z.score.pval, binom.pval, prop.cint)
-export(cont.table, sample.df)
+export(cont.table, sample.df, stars.pval)
 export(chisq, chisq.pval, fisher.pval)
-export(simulated.census, simulated.wikipedia)
+export(simulated.census, simulated.wikipedia, simulated.language.course)
+export(rowVector, colVector)

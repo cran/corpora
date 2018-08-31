@@ -4,7 +4,7 @@
 
 \title{
 
-  Comparison of written and spoken frequencies (BNC)
+Comparison of written and spoken noun frequencies in the British National Corpus
 
 }
 
@@ -22,12 +22,14 @@
 }
 
 \usage{
-data(BNCcomparison)
+
+BNCcomparison
+
 }
 
 \format{
 
-  A data set with 61 rows and the following columns:
+  A data frame with 61 rows and the following columns:
 
   \describe{
     \item{\code{noun}:}{lemmatised noun (aka stem form)}
@@ -57,5 +59,5 @@ data(BNCcomparison)
 %%\examples{
 %%}
 
-\author{Stefan Evert (\url{http://purl.org/stefan.evert})}
+\author{Stefan Evert <\email{stefan.evert@fau.de}>}
 \keyword{datasets}

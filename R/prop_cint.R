@@ -11,16 +11,16 @@ prop.cint <- function(k, n, method=c("binomial", "z.score"), correct=TRUE,
   if (length(conf.level) < l) conf.level <- rep(conf.level, length.out=l)
 
   if (method == "binomial") {
-    ## compute binomial confidence interval (using incomplete Beta function)
+    ## Clopper-Pearson method: invert binomial test (using incomplete Beta function)
     alpha <- if (alternative == "two.sided") (1 - conf.level) / 2 else (1 - conf.level)
-    lower <- qbeta(alpha, k, n - k + 1)
-    upper <- qbeta(1 - alpha, k + 1, n - k)
+    lower <- safe.qbeta(alpha, k, n - k + 1)
+    upper <- safe.qbeta(alpha, k + 1, n - k, lower.tail=FALSE)
     cint <- switch(alternative,
                    two.sided = data.frame(lower = lower, upper = upper),
                    less      = data.frame(lower = 0,     upper = upper),
                    greater   = data.frame(lower = lower, upper = 1))
   } else {
-    ## compute z-score confidence interval (by solving quadratic z-test equation for p)
+    ## Wilson score method: invert z-test by solving a quadratic equation
     alpha <- if (alternative == "two.sided") (1 - conf.level) / 2 else (1 - conf.level)
     z <- qnorm(alpha, lower.tail=FALSE) # z-score corresponding to desired confidence level
     yates <- if (correct) 0.5 else 0.0  # whether to apply Yates' correction
@@ -46,4 +46,17 @@ prop.cint <- function(k, n, method=c("binomial", "z.score"), correct=TRUE,
   }
 
   cint
+}
+
+## safely compute qbeta even for shape parameters alpha == 0 or beta == 0
+safe.qbeta <- function (p, shape1, shape2, lower.tail=TRUE) {
+  stopifnot(length(p) == length(shape1) && length(p) == length(shape2)) # arguments must all have same number of values
+  is.0 <- shape1 <= 0
+  is.1 <- shape2 <= 0
+  ok <- !(is.0 | is.1)
+  x <- rep_len(NA, length(p))
+  x[ok] <- qbeta(p[ok], shape1[ok], shape2[ok], lower.tail=lower.tail) # shape parameters are valid
+  x[is.0 & !is.1] <- 0 # density concentrated at x = 0 (for alpha == 0)
+  x[is.1 & !is.0] <- 1 # density concentrated at x = 1 (for beta == 0)
+  x
 }

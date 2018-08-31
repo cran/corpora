@@ -19,12 +19,14 @@
 }
 
 \usage{
-data(BNCdomains)
+
+BNCdomains
+
 }
 
 \format{
 
-  A data set with 19 rows and the following columns:
+  A data frame with 19 rows and the following columns:
 
   \describe{
     \item{\code{domain}:}{name of the respective domain in the BNC}
@@ -54,5 +56,5 @@ data(BNCdomains)
 %%\examples{
 %%}
 
-\author{Marco Baroni (\email{baroni@sslmit.unibo.it})}
+\author{Marco Baroni <\email{baroni@sslmit.unibo.it}>}
 \keyword{datasets}
