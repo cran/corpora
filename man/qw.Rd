@@ -43,5 +43,5 @@ qw("alpha beta gamma", names=TRUE)
 qw("words with blanks,  sep by commas", sep="\\\\s*,\\\\s*")
 }
 
-\author{Stefan Evert <\email{stefan.evert@fau.de}>}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{utilities}

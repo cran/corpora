@@ -31,7 +31,7 @@ It is a companion package to the open-source course \emph{Statistical Inference:
 
 \author{ 
 
-Stefan Evert <\email{stefan.evert@fau.de}> 
+Stephanie Evert (\url{https://purl.org/stephanie.evert})
 
 }
 

@@ -46,7 +46,7 @@ simulated.census(N=502202, p.male=0.55, seed.rng=42)
 \details{
 
   The default population size corresponds to the estimated populace of Luxembourg
-  on 1 January 2010 (according to \url{http://en.wikipedia.org/wiki/Luxembourg}).
+  on 1 January 2010 (according to \url{https://en.wikipedia.org/wiki/Luxembourg}).
 
   Further parameters of the simulation (standard deviation, correlations, non-linearity)
   will be exposed as function arguments in future releases.
@@ -68,5 +68,5 @@ summary(FakeCensus)
 
 }
 
-\author{Stefan Evert <\email{stefan.evert@fau.de}>}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{datasets}

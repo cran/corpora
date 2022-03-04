@@ -53,5 +53,5 @@ z.score(k, n, p = 0.5, correct = TRUE)
 %% \examples{
 %% }
   
-\author{Stefan Evert}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{htest}

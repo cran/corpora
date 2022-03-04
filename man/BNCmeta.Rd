@@ -19,7 +19,7 @@
   files.  Some transformations were applied so that all attribute names and 
   their values are given in a human-readable form.  The Perl scripts used
   in the extraction procedure are available from
-  \url{http://cwb.sourceforge.net/download.php#import}.
+  \url{https://cwb.sourceforge.io/download.php#import}.
 
 }
 
@@ -81,5 +81,5 @@ BNCmeta
 %%\examples{
 %%}
 
-\author{Stefan Evert <\email{stefan.evert@fau.de}>}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{datasets}

@@ -82,5 +82,5 @@ chisq(k1, n1, k2, n2, correct = TRUE, one.sided=FALSE)
   
 }
 
-\author{Stefan Evert}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{htest}

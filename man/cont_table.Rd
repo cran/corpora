@@ -51,6 +51,6 @@ cont.table(k1, n1, k2, n2, as.list=NA)
 %% \examples{
 %% }
   
-\author{Stefan Evert}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{array}
 \keyword{htest}

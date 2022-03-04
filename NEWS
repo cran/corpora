@@ -1,3 +1,9 @@
+Version 0.5-1:
+  - maintenance release to comply with maintainer information format required by CRAN
+  - fix incorrect gender of package author and maintainer
+  - added a few utility functions: qw(), rowVector(), colVector(), corpora.palette(), alpha.col()
+  - minor documentation fixes and updated URLs
+
 Version 0.5:
   - consolidated and revised example data sets included in the package
   - various small, but convenient utility functions added 
@@ -10,20 +16,15 @@ Version 0.4-9:
   - in future, it will be used to collect miscellaneous utility functions for analyzing corpus frequency data
 
 Version 0.4-3:
-
   - interim release to ensure compatiblity with stricter CRAN checks
   - added data set with Biber register features for all BNC texts (from Gasthaus 2007)
   - some minor corrections
 
 Version 0.4-1:
-
   - large simulated census data set for examples and illustrations in the SIGIL course
   - simulated type-token statistics from English Wikipedia (based on Wackypedia corpus)
   - convenience function for random samples of rows from a data frame (sample.df)
 
-
 Version 0.4-0:
-
   - re-launch of the corpora package on R-Forge
   - first version 0.4-0 has only minor changes over previous release 0.3-2
-

@@ -58,7 +58,7 @@ simulated.wikipedia(N=1429649, length=c(100,1000), seed.rng=42)
 
 \references{
   
-  The Wackypedia corpus can be obtained from \url{http://wacky.sslmit.unibo.it/doku.php?id=corpora}.
+  The Wackypedia corpus can be obtained from \url{https://wacky.sslmit.unibo.it/doku.php?id=corpora}.
   
 }
 
@@ -75,5 +75,5 @@ summary(WackypediaStats)
 
 }
 
-\author{Stefan Evert <\email{stefan.evert@fau.de}>}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{datasets}

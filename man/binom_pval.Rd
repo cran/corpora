@@ -55,5 +55,5 @@ performance.
 %% \examples{
 %% }
   
-\author{Stefan Evert}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{htest}

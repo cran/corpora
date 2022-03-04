@@ -78,5 +78,5 @@ KrennPPV
 %%\examples{
 %%}
 
-\author{Stefan Evert <\email{stefan.evert@fau.de}>}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{datasets}

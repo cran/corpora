@@ -57,5 +57,5 @@ DistFeatBrownFam
 %%\examples{
 %%}
 
-\author{Stefan Evert (\url{http://purl.org/stefan.evert})}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{datasets}

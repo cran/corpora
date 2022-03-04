@@ -87,8 +87,8 @@ prop.cint(k, n, method = c("binomial", "z.score"), correct = TRUE,
 %% }
 
 \references{
-  \url{http://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval}
+  \url{https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval}
 }
 
-\author{Stefan Evert}
+\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
 \keyword{htest}
