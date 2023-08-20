@@ -65,5 +65,5 @@ for (name in qw("seaborn muted bright simple")) {
 par(par.save)
 }
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{color}

@@ -69,18 +69,20 @@ chisq(k1, n1, k2, n2, correct = TRUE, one.sided=FALSE)
 \seealso{\code{\link{chisq.pval}}, \code{\link{chisq.test}},
   \code{\link{cont.table}}}
   
-%% \examples{
-%% }
+\examples{
+chisq.test(cont.table(99, 1000, 36, 1000))
+chisq(99, 1000, 36, 1000)
+}
 
 \references{
 
   Evert, Stefan (2004). \emph{The Statistics of Word Cooccurrences: Word
-  Pairs and Collocations.}  Ph.D. thesis, Institut für maschinelle
+  Pairs and Collocations.}  Ph.D. thesis, Institut f?r maschinelle
   Sprachverarbeitung, University of Stuttgart.  Published in 2005, URN
   urn:nbn:de:bsz:93-opus-23714. Available from
   \url{http://www.collocations.de/phd.html}.
   
 }
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{htest}

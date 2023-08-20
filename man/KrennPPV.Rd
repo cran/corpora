@@ -16,7 +16,7 @@
   pre-computed scores of several standard association measures are provided.
    
   The \code{KrennPPV} candidate set forms part of the data used in the evaluation study
-  of Evert \& Krenn (2005). 
+  of Evert & Krenn (2005). 
   
 }
 
@@ -71,12 +71,12 @@ KrennPPV
   Krenn, Brigitte (2000).
   \emph{The Usual Suspects: Data-Oriented Models for the Identification and Representation of Lexical Collocations},
   volume~7 of \emph{Saarbrücken Dissertations in Computational Linguistics and Language Technology}.
-  DFKI \& Universität des Saarlandes, Saarbrücken, Germany.
+  DFKI & Universität des Saarlandes, Saarbrücken, Germany.
 
 }
 
 %%\examples{
 %%}
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{datasets}

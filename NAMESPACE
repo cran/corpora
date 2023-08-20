@@ -1,6 +1,7 @@
 importFrom(methods, is)
 importFrom(utils, combn)
-importFrom(stats, pbinom, qbinom, phyper, qhyper, pbeta, qbeta, pchisq, pnorm, qnorm, rnorm, runif)
+importFrom(stats, setNames)
+importFrom(stats, pbinom, qbinom, phyper, qhyper, pbeta, qbeta, pchisq, qchisq, pnorm, qnorm, rnorm, runif)
 importFrom(grDevices, col2rgb, rgb)
 
 export(qw, corpora.palette, alpha.col)
@@ -9,3 +10,4 @@ export(cont.table, sample.df, stars.pval)
 export(chisq, chisq.pval, fisher.pval)
 export(simulated.census, simulated.wikipedia, simulated.language.course)
 export(rowVector, colVector)
+export(keyness)

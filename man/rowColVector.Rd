@@ -41,5 +41,5 @@ rowVector(1:5, "myvec")
 colVector(c(A=1, B=2, C=3), label="myvec")
 }
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{utilities}

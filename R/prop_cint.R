@@ -1,18 +1,22 @@
-prop.cint <- function(k, n, method=c("binomial", "z.score"), correct=TRUE,
+prop.cint <- function(k, n, method=c("binomial", "z.score"), correct=TRUE, p.adjust=FALSE,
                       conf.level=0.95, alternative=c("two.sided", "less", "greater")) {
   method <- match.arg(method)
   alternative <- match.arg(alternative)
-  if (any(k < 0) || any(k > n) || any(n < 1)) stop("arguments must be integer vectors with 0 <= k <= n")
+
+  l <- .match.len(c("k", "n", "conf.level"), adjust=TRUE) # ensure that all vectors have the same length
+  if (any(k < 0) || any(k > n) || any(n < 1)) stop("arguments must be integer vectors with 0 <= k <= n and n >= 1")
   if (any(conf.level <= 0) || any(conf.level > 1)) stop("conf.level must be in range [0,1]")
 
-  l <- max(length(k), length(n), length(conf.level)) # ensure that all vectors have the same length
-  if (length(k) < l) k <- rep(k, length.out=l)
-  if (length(n) < l) n <- rep(n, length.out=l)
-  if (length(conf.level) < l) conf.level <- rep(conf.level, length.out=l)
-
+  ## significance level for underlying hypothesis test (with optional Bonferroni correction)
+  alpha <- if (alternative == "two.sided") (1 - conf.level) / 2 else (1 - conf.level)
+  if (!isFALSE(p.adjust)) {
+    if (isTRUE(p.adjust)) p.adjust <- l # implicit family size
+    if (!is.numeric(p.adjust)) stop("p.adjust must either be TRUE/FALSE or a number specifying the family size")
+    alpha <- alpha / p.adjust # Bonferroni correction
+  }
+  
   if (method == "binomial") {
     ## Clopper-Pearson method: invert binomial test (using incomplete Beta function)
-    alpha <- if (alternative == "two.sided") (1 - conf.level) / 2 else (1 - conf.level)
     lower <- safe.qbeta(alpha, k, n - k + 1)
     upper <- safe.qbeta(alpha, k + 1, n - k, lower.tail=FALSE)
     cint <- switch(alternative,
@@ -21,7 +25,6 @@ prop.cint <- function(k, n, method=c("binomial", "z.score"), correct=TRUE,
                    greater   = data.frame(lower = lower, upper = 1))
   } else {
     ## Wilson score method: invert z-test by solving a quadratic equation
-    alpha <- if (alternative == "two.sided") (1 - conf.level) / 2 else (1 - conf.level)
     z <- qnorm(alpha, lower.tail=FALSE) # z-score corresponding to desired confidence level
     yates <- if (correct) 0.5 else 0.0  # whether to apply Yates' correction
     
@@ -54,9 +57,10 @@ safe.qbeta <- function (p, shape1, shape2, lower.tail=TRUE) {
   is.0 <- shape1 <= 0
   is.1 <- shape2 <= 0
   ok <- !(is.0 | is.1)
-  x <- rep_len(NA, length(p))
+  x <- numeric(length(p))
   x[ok] <- qbeta(p[ok], shape1[ok], shape2[ok], lower.tail=lower.tail) # shape parameters are valid
   x[is.0 & !is.1] <- 0 # density concentrated at x = 0 (for alpha == 0)
   x[is.1 & !is.0] <- 1 # density concentrated at x = 1 (for beta == 0)
+  x[is.0 & is.1] <- NA # shouldn't happen in our case (alpha == beta == 0)
   x
 }

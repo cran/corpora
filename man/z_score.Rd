@@ -40,7 +40,7 @@ z.score(k, n, p = 0.5, correct = TRUE)
 \details{
 
   The \eqn{z} statistic is given by \deqn{%
-    z := \frac{k - np}{\sqrt{n p (1-p)}} }{%
+    z := \dfrac{k - np}{\sqrt{n p (1-p)}} }{%
     z := (k - np) / sqrt(n p (1-p)) } 
   When Yates' continuity correction is enabled, the \emph{absolute
     value} of the numerator \eqn{d := k - np} is reduced by \eqn{1/2},
@@ -50,8 +50,15 @@ z.score(k, n, p = 0.5, correct = TRUE)
 
 \seealso{\code{\link{z.score.pval}}}
   
-%% \examples{
-%% }
+\examples{
+# z-test for H0: pi = 0.15 with observed counts 10..30 in a sample of n=100 tokens
+k <- c(10:30)
+z <- z.score(k, 100, p=.15)
+names(z) <- k
+round(z, 3)
+
+abs(z) >= 1.96  # significant results at p < .05
+}
   
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{htest}

@@ -5,8 +5,9 @@
 \description{
 
   This function computes the p-value of a binomial test for frequency
-  counts.  In the two-sided case, a fast approximation is used that may
-  be inaccurate for small samples.
+  counts.  In the two-sided case, a \dQuote{central} p-value (Fay 2010)
+  provides better numerical efficiency than the likelihood-based approach
+  of \code{binom.test} and is always consistent with confidence intervals.
 
 }
 
@@ -41,19 +42,33 @@ binom.pval(k, n, p = 0.5,
 
 \details{
 
-When \code{alternative} is \code{two.sided}, a fast approximation of the
-two-sided p-value is used (multiplying the appropriate single-sided tail
-probability by two), which may be inaccurate for small samples.  Unlike
-the exact algorithm of \code{\link{binom.test}}, this implementation can
-be applied to large frequencies and samples without a serious impact on
-performance.
+For \code{alternative="two.sided"} (the default), a \dQuote{central} p-value
+is computed (Fay 2010: 53f), which differs from the likelihood-based two-sided
+p-value determined by \code{binom.test} (the \dQuote{minlike} method in Fay's
+terminology).  This approach has two advantages: (i) it is numerically robust
+and efficient, even for very large samples and frequency counts; (ii) it is 
+always consistent with Clopper-Pearson confidence intervals (see examples below).
 
 }
 
-\seealso{\code{\link{z.score.pval}}, \code{\link{prop.cint}}}
+\seealso{
+  \code{\link{z.score.pval}}, \code{\link{prop.cint}}
+}
+
+\references{
+
+  Fay, Michael P. (2010). Two-sided exact tests and matching confidence intervals for discrete data. \emph{The R Journal}, \bold{2}(1), 53-58.
   
-%% \examples{
-%% }
+}
   
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\examples{
+# inconsistency btw likelihood-based two-sided binomial test and confidence interval
+binom.test(2, 10, p=0.555)
+
+# central two-sided test as implemented by binom.pval is always consistent
+binom.pval(2, 10, p=0.555)
+prop.cint(2, 10, method="binomial")
+}
+  
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{htest}

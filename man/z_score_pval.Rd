@@ -46,8 +46,16 @@ z.score.pval(k, n, p = 0.5, correct = TRUE,
 
 \seealso{\code{\link{z.score}}, \code{\link{binom.pval}}, \code{\link{prop.cint}}}
   
-%% \examples{
-%% }
+\examples{
+# compare z-test for H0: pi = 0.15 against binomial test
+# with observed counts 10..30 in a sample of n=100 tokens
+k <- c(10:30)
+p.compare <- rbind(
+  z.score = z.score.pval(k, 100, p=.15),
+  binomial = binom.pval(k, 100, p=.15))
+colnames(p.compare) <- k
+round(p.compare, 4)
+}
   
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{htest}

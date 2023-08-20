@@ -1,3 +1,14 @@
+Version 0.6:
+  - keyness() function implements best-practice keyness measures according to Evert (2022)
+  - some documentation improvements
+  - package tests have been added
+
+Version 0.5-2:
+  - now requires R >= 3.5.0
+  - add Bonferroni correction to prop.cint() and improve documentation
+  - improve documentation for central two-sided p-values computed by binom.pval() and fisher.pval()
+  - stricter checks that vector arguments are of the same length
+
 Version 0.5-1:
   - maintenance release to comply with maintainer information format required by CRAN
   - fix incorrect gender of package author and maintainer

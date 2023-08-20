@@ -13,7 +13,7 @@
 
 \usage{
 
-prop.cint(k, n, method = c("binomial", "z.score"), correct = TRUE,
+prop.cint(k, n, method = c("binomial", "z.score"), correct = TRUE, p.adjust=FALSE,
           conf.level = 0.95, alternative = c("two.sided", "less", "greater"))
 
 }
@@ -26,9 +26,13 @@ prop.cint(k, n, method = c("binomial", "z.score"), correct = TRUE,
     integer vector specifying the sizes of different samples)}
   \item{method}{a character string specifying whether to compute
     a Clopper-Pearson confidence interval (\code{binomial}) or
-    a Wilson score interval (\code{z.score}) is computed}
+    a Wilson score interval (\code{z.score})}
   \item{correct}{if \code{TRUE}, apply Yates' continuity correction for
     the z-score test (default)}
+  \item{p.adjust}{if \code{TRUE}, apply a Bonferroni correction to ensure
+    a family-wise confidence level over all tests carried out in a single
+    function call (i.e. the length of \code{k}). Alternatively, the desired 
+    family size can be specified instead of \code{TRUE}.}
   \item{conf.level}{the desired confidence level (defaults to 95\%)}
   \item{alternative}{a character string specifying the alternative
     hypothesis, yielding a two-sided (\code{two.sided}, default), lower
@@ -52,19 +56,29 @@ prop.cint(k, n, method = c("binomial", "z.score"), correct = TRUE,
   returned by \code{\link{binom.test}} and \code{\link{prop.test}},
   respectively.  However, \code{prop.cint} accepts vector arguments,
   allowing many confidence intervals to be computed with a single
-  function call.  In addition, it uses a fast approximation of the
-  two-sided binomial test that can safely be applied to large samples.
-
-  The confidence interval for a z-score test is computed by solving the
-  z-score equation \deqn{%
-    \frac{k - np}{\sqrt{n p (1-p)}} = \alpha }{%
-    (k - np) / sqrt(n p (1-p)) = alpha }
-  for \eqn{p}, where \eqn{\alpha} is the \eqn{z}-value corresponding
+  function call in a computationally efficient manner.
+  
+  The \bold{Clopper-Pearson} confidence interval (\code{binomial}) is
+  obtained by inverting the exact binomial test at significance level
+  \eqn{\alpha} = 1 - \code{confidence.level}.
+  In the two-sided case, the p-value of the test is computed using the
+  \dQuote{central} method Fay (2010: 53), i.e. as twice the tail probability
+  of the matching tail. This corresponds to the algorithm originally proposed
+  by Clopper & Pearson (1934).
+  
+  The limits of the confidence interval are computed in an efficient and
+  numerically robust manner via (the inverse of) the incomplete Beta function.
+  
+  The \bold{Wilscon score} confidence interval (\code{z.score}) is computed
+  by solving the equation of the z-score test \deqn{%
+    \frac{k - np}{\sqrt{n p (1-p)}} = A }{%
+    (k - np) / sqrt(n p (1-p)) = A }
+  for \eqn{p}, where \eqn{A} is the \eqn{z}-value corresponding
   to the chosen confidence level (e.g. \eqn{\pm 1.96}{+/- 1.96} for a
   two-sided test with 95\% confidence).  This leads to the quadratic
   equation \deqn{%
-    p^2 (n + \alpha^2) + p (-2k - \alpha^2) + \frac{k^2}{n} = 0 }{%
-    p^2 (n + alpha^2) + p (-2k - alpha^2) + k^2 / n = 0 }
+    p^2 (n + A^2) + p (-2k - A^2) + \frac{k^2}{n} = 0 }{%
+    p^2 (n + A^2) + p (-2k - A^2) + k^2 / n = 0 }
   whose two solutions correspond to the lower and upper boundary of
   the confidence interval.
 
@@ -77,18 +91,36 @@ prop.cint(k, n, method = c("binomial", "z.score"), correct = TRUE,
   corresponding solution of the quadratic equation has to be chosen
   (i.e., the solution with \eqn{k > np} for the lower boundary and vice
   versa).
+ 
+  If a \bold{Bonferroni} correction is applied, the significance level \eqn{\alpha}
+  of the underlying test is divided by the number \eqn{m} of tests carried out
+  (specified explicitly by the user or given implicitly by \code{length(k)}):
+  \eqn{\alpha' = \alpha / m}.
   
 }
 
 \seealso{\code{\link{z.score.pval}}, \code{\link{prop.test}},
   \code{\link{binom.pval}}, \code{\link{binom.test}}}
   
-%% \examples{
-%% }
+\examples{
+# Clopper-Pearson confidence interval
+binom.test(19, 100)
+prop.cint(19, 100, method="binomial")
 
-\references{
-  \url{https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval}
+# Wilson score confidence interval
+prop.test(19, 100)
+prop.cint(19, 100, method="z.score")
 }
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\references{
+
+  Clopper, C. J. & Pearson, E. S. (1934). The use of confidence or fiducial limits illustrated in the case of the binomial. \emph{Biometrika}, \bold{26}(4), 404-413.
+
+  Fay, Michael P. (2010). Two-sided exact tests and matching confidence intervals for discrete data. \emph{The R Journal}, \bold{2}(1), 53-58.
+
+  \url{https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval}
+
+}
+
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{htest}

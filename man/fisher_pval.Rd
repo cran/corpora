@@ -6,8 +6,10 @@
 
   This function computes the p-value of Fisher's exact test (Fisher
   1934) for the comparison of corpus frequency counts (under the null
-  hypothesis of equal population proportions).  In the two-sided case, a
-  fast approximation is used that may be inaccurate for small samples.
+  hypothesis of equal population proportions).  In the two-sided case,
+  a \dQuote{central} p-value (Fay 2010) provides better numerical efficiency
+  than the likelihood-based approach of \code{fisher.test} and is always
+  consistent with confidence intervals.
 
 }
 
@@ -51,22 +53,24 @@ fisher.pval(k1, n1, k2, n2,
 
 \details{
 
-  When \code{alternative} is \code{two.sided}, a fast approximation of
-  the two-sided p-value is used (multiplying the appropriate
-  single-sided tail probability by two), which may be inaccurate for
-  small samples.  Unlike the exact algorithm of
-  \code{\link{fisher.test}}, this implementation is memory-efficient and
-  can be applied to large samples and/or large frequency counts.
+For \code{alternative="two.sided"} (the default), the p-value of the
+\dQuote{central} Fisher's exact test (Fay 2010) is computed, which 
+differs from the more common likelihood-based method implemented by
+\code{fisher.test} (and referred to as the \dQuote{two-sided Fisher's
+exact test} by Fay).  This approach has two advantages:
+(i) it is numerically robust and efficient, even for very large samples and frequency counts;
+(ii) it is consistent with Clopper-Pearson type confidence intervals (see examples below).
 
-  For one-sided tests, the p-values returned by this functions are
-  identical to those computed by \code{\link{fisher.test}} on two-by-two
-  contingency tables.
+For one-sided tests, the p-values returned by this function are identical
+to those computed by \code{\link{fisher.test}} on two-by-two contingency tables.
 
 }
 
 \seealso{\code{\link{fisher.test}}, \code{\link{chisq.pval}}}
 
 \references{
+
+  Fay, Michael P. (2010). Confidence intervals that match Fisher's exact or Blaker's exact tests. \emph{Biostatistics}, \bold{11}(2), 373-374.
 
   Fisher, R. A. (1934). \emph{Statistical Methods for Research Workers}.
   Oliver & Boyd, Edinburgh, 2nd edition (1st edition 1925, 14th
@@ -75,26 +79,31 @@ fisher.pval(k1, n1, k2, n2,
 }
 
 \examples{
+## Fisher's Tea Drinker (see ?fisher.test)
+TeaTasting <-
+matrix(c(3, 1, 1, 3),
+       nrow = 2,
+       dimnames = list(Guess = c("Milk", "Tea"),
+                       Truth = c("Milk", "Tea")))
+print(TeaTasting)
+##  - the "corpora" consist of 4 cups of tea each (n1 = n2 = 4)
+##     => columns of TeaTasting
+##  - frequency counts are the number of cups selected by drinker (k1 = 3, k2 = 1)
+##     => first row of TeaTasting
+##  - null hypothesis of equal type probability = drinker makes random guesses
+fisher.pval(3, 4, 1, 4, alternative="greater")
+fisher.test(TeaTasting, alternative="greater")$p.value # should be the same
 
-  ## Fisher's Tea Drinker (see ?fisher.test)
-  TeaTasting <-
-  matrix(c(3, 1, 1, 3),
-         nrow = 2,
-         dimnames = list(Guess = c("Milk", "Tea"),
-                         Truth = c("Milk", "Tea")))
-  print(TeaTasting)
-  ##  - the "corpora" consist of 4 cups of tea each (n1 = n2 = 4)
-  ##     => columns of TeaTasting
-  ##  - frequency counts are the number of cups selected by drinker (k1 = 3, k2 = 1)
-  ##     => first row of TeaTasting
-  ##  - null hypothesis of equal type probability = drinker makes random guesses
-  fisher.pval(3, 4, 1, 4, alternative="greater")
-  fisher.test(TeaTasting, alternative="greater")$p.value # should be the same
-  
-  fisher.pval(3, 4, 1, 4) # uses fast approximation suitable for small p-values
-  fisher.test(TeaTasting)$p.value # approximation is exact for symmetric distribution
+fisher.pval(3, 4, 1, 4)         # central Fisher's exact test is equal to
+fisher.test(TeaTasting)$p.value # standard two-sided Fisher's test for symmetric distribution
 
+# inconsistency btw likelihood-based two-sided Fisher's test and confidence interval
+# for 4/15 vs. 50/619 successes
+fisher.test(cbind(c(4, 11), c(50, 619)))
+
+# central Fisher's exact test is always consistent
+fisher.pval(4, 15, 50, 619)
 }
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{htest}

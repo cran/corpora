@@ -1,18 +1,13 @@
 chisq <- function (k1, n1, k2, n2, correct=TRUE, one.sided=FALSE) {
+  l <- .match.len(c("k1", "n1", "k2", "n2"), adjust=TRUE) # ensure that all vectors have the same length
   if (any(k1 < 0) || any(k1 > n1) || any(n1 <= 0)) stop("k1 and n1 must be integers with 0 <= k1 <= n1")
   if (any(k2 < 0) || any(k2 > n2) || any(n2 <= 0)) stop("k2 and n2 must be integers with 0 <= k2 <= n2")
   if (any(k1 + k2 <= 0)) stop("either k1 or k2 must be non-zero")
 
-  l <- max(length(k1), length(n1), length(k2), length(n2)) # ensure that all vectors have the same length
-  if (length(k1) < l) k1 <- rep(k1, length.out=l)
-  if (length(n1) < l) n1 <- rep(n1, length.out=l)
-  if (length(k2) < l) k2 <- rep(k2, length.out=l)
-  if (length(n2) < l) n2 <- rep(n2, length.out=l)
-
-  k1 <- as.numeric(k1)                  # force integer -> float conversion to avoid overflow in multiplication below
-  n1 <- as.numeric(n1)
-  k2 <- as.numeric(k2)
-  n2 <- as.numeric(n2)
+  storage.mode(k1) <- "double" # coerce to floating point so we don't get integer overflow for products below
+  storage.mode(n1) <- "double"
+  storage.mode(k2) <- "double"
+  storage.mode(n2) <- "double"
   
   O11 <- k1                             # construct "observed" contingency table
   O21 <- n1 - k1

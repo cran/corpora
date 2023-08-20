@@ -1,10 +1,10 @@
 Package: corpora
 Type: Package
 Title: Statistics and Data Sets for Corpus Frequency Data
-Version: 0.5-1
-Depends: R (>= 3.0.0)
+Version: 0.6
+Depends: R (>= 3.5.0)
 Imports: methods, stats, utils, grDevices
-Date: 2022-02-22
+Date: 2023-08-20
 Authors@R: person("Stephanie", "Evert", email="stephanie.evert@fau.de", role=c("cre", "aut"), comment=c(ORCID="0000-0002-4192-2437"))
 Description: Utility functions for the statistical analysis of corpus frequency data.
         This package is a companion to the open-source course "Statistical Inference: 
@@ -14,8 +14,8 @@ URL: http://SIGIL.R-Forge.R-Project.org/
 LazyData: yes
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2022-03-03 15:35:44 UTC; evert
+Packaged: 2023-08-20 15:53:03 UTC; ex47emin
 Author: Stephanie Evert [cre, aut] (<https://orcid.org/0000-0002-4192-2437>)
 Maintainer: Stephanie Evert <stephanie.evert@fau.de>
 Repository: CRAN
-Date/Publication: 2022-03-04 12:00:02 UTC
+Date/Publication: 2023-08-20 22:52:41 UTC

@@ -41,7 +41,7 @@ BNCcomparison
 
 \details{
 
-  In addition to the 60 nouns, the data set contains a column labelled
+  In addition to the 60 nouns, the data set contains a row labelled
   \code{OTHER}, which represents the total frequency of all other nouns
   in the BNC.  This value is needed in order to calculate the sample
   sizes of the written and spoken part for frequency comparison tests.
@@ -59,5 +59,5 @@ BNCcomparison
 %%\examples{
 %%}
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{datasets}

@@ -48,9 +48,13 @@ cont.table(k1, n1, k2, n2, as.list=NA)
 
 \seealso{\code{\link{chisq.test}}, \code{\link{fisher.test}}}
   
-%% \examples{
-%% }
+\examples{
+ct <- cont.table(42, 100, 66, 200)
+ct
+
+chisq.test(ct)
+}
   
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{array}
 \keyword{htest}

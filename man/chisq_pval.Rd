@@ -61,8 +61,10 @@ chisq.pval(k1, n1, k2, n2, correct = TRUE,
 \seealso{\code{\link{chisq}}, \code{\link{fisher.pval}},
   \code{\link{chisq.test}}, \code{\link{prop.test}}}
   
-%% \examples{
-%% }
+\examples{
+chisq.test(cont.table(99, 1000, 36, 1000))
+chisq.pval(99, 1000, 36, 1000)
+}
   
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{htest}

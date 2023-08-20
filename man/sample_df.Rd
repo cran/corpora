@@ -44,8 +44,9 @@ sample.df(df, size, replace=FALSE, sort=FALSE, prob=NULL)
 
 }
 
-%% \examples{
-%% }
+\examples{
+sample.df(BrownLOBPassives, 20, sort=TRUE)
+}
   
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{manip}

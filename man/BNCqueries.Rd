@@ -62,5 +62,5 @@ BNCqueries
 %%\examples{
 %%}
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{datasets}

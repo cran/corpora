@@ -11,7 +11,7 @@
 \description{
 
   This data set provides some basic quantiative measures for all texts
-  in the Brown corpus of written American English (Francis \& Kucera 1964),
+  in the Brown corpus of written American English (Francis & Kucera 1964),
 
 }
 

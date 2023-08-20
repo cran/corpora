@@ -11,7 +11,7 @@
 \description{
 
   This data set contains frequency counts of passive verb phrases
-  in the Brown corpus of written American English (Francis \& Kucera 1964),
+  in the Brown corpus of written American English (Francis & Kucera 1964),
   aggregated by genre category.
 
 }
@@ -56,5 +56,5 @@ BrownPassives
 %%\examples{
 %%}
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{datasets}

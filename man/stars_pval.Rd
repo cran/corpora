@@ -32,5 +32,5 @@ stars.pval(x)
 stars.pval(c(0, .007, .01, .04, .1))
 }
 
-\author{Stephanie Evert (Rl{https://purl.org/stephanie.evert})}
+\author{Stephanie Evert (\url{https://purl.org/stephanie.evert})}
 \keyword{utilities}
